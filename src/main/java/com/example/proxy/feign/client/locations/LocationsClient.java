@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @FeignClient(url = "${feign.accuweather.locations.url}", name = "locations")
 public interface LocationsClient {
 
-    @RequestMapping(method = RequestMethod.GET)
-    Locations searchByQ(@RequestParam("apikey")String apikey, @RequestParam("q")String q);
+    @RequestMapping(method = RequestMethod.GET, value = "/cities/search")
+    List<Locations> searchByQ(@RequestParam("apikey")String apikey, @RequestParam("q")String q);
 
 }

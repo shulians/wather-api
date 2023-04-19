@@ -1,18 +1,12 @@
 package com.example.proxy.feign.rest.currentconditions;
 
+import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
+@Builder
 public class CurrentConditions {
-    LocalDateTime LocalObservationDateTime;
-    Integer EpochTime;
-    String WeatherText;
-    Integer WeatherIcon;
-    Boolean HasPrecipitation;
-    String PrecipitationType;
-    Boolean IsDayTime;
+    String LocalObservationDateTime;
     Temperature Temperature;
     String MobileLink;
     String Link;

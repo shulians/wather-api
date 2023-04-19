@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @FeignClient(url = "${feign.accuweather.conditions.url}", name = "conditions")
 public interface CurrentConditionsClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{locationKey}")
-    CurrentConditions getByLocationKey(@RequestParam("apikey")String apikey, @PathVariable("locationKey")String locationKey);
+    List<CurrentConditions> getByLocationKey(@RequestParam("apikey")String apikey, @PathVariable("locationKey")String locationKey);
 
 }
