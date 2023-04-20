@@ -5,6 +5,7 @@ import com.example.proxy.dto.response.LocationResDTO;
 import com.example.proxy.feign.rest.currentconditions.CurrentConditions;
 import com.example.proxy.feign.rest.currentconditions.MeasureTime;
 import com.example.proxy.feign.rest.currentconditions.Temperature;
+import com.example.proxy.feign.rest.locations.AdministrativeArea;
 import com.example.proxy.feign.rest.locations.Country;
 import com.example.proxy.feign.rest.locations.Locations;
 
@@ -17,11 +18,11 @@ public class TestUtil {
     public static final String TEXT = "Luis Guillon";
     public static final String KEY = "1-7216_1_AL";
     public static final Integer VERSION = 1;
-    public static final String TYPE = "City";
     public static final Integer RANK = 85;
     public static final String  LOCATIONS_LOCALIZED_NAME = "Luis Guillon";
     public static final String  ID = "AR";
     public static final String  COUNTRY_LOCALIZED_NAME = "Argentina";
+    public static final String  CITY_LOCALIZED_NAME = "Buenos Aires";
     public static final String  DATE_TIME = "2023-04-19T20:35:00-03:00";
     public static final String  LINK = "http://www.accuweather.com/en/ar/luis-guillon/1-7216_1_al/current-weather/1-7216_1_al?lang=en-us";
     public static final Double DOUBLE_METRIC = 12.8;
@@ -33,10 +34,10 @@ public class TestUtil {
         return Locations.builder()
                         .Key(KEY)
                         .Version(VERSION)
-                        .Type(TYPE)
                         .Rank(RANK)
                         .LocalizedName(LOCATIONS_LOCALIZED_NAME)
-                        .Country(getCountry()).build();
+                        .Country(getCountry())
+                        .AdministrativeArea(getAdministrativeArea()).build();
     }
 
     public static List<Locations> getListLocations(){
@@ -56,15 +57,24 @@ public class TestUtil {
                 .build();
     }
 
+    public static LocationResDTO getLocationResDTO(){
+        return LocationResDTO.builder().build();
+    }
+
+    public static List<LocationResDTO> getLocationsResDTO(){
+        List<LocationResDTO> locationsResDTO = new ArrayList();
+        LocationResDTO l1 = getLocationResDTO();
+        locationsResDTO.add(l1);
+
+        return locationsResDTO;
+    }
+
     public static List<CurrentConditions> getListCurrentConditions(){
         List<CurrentConditions> currentConditions = new ArrayList();
         CurrentConditions c1 = getCurrentConditions();
         currentConditions.add(c1);
 
         return currentConditions;
-    }
-    public static LocationResDTO getLocationResDTO(){
-        return LocationResDTO.builder().build();
     }
 
     public static CurrentConditionResDTO getCurrentConditionResDTO(){
@@ -73,6 +83,10 @@ public class TestUtil {
 
     private static Country getCountry(){
         return Country.builder().ID(ID).LocalizedName(COUNTRY_LOCALIZED_NAME).build();
+    }
+
+    private static AdministrativeArea getAdministrativeArea(){
+        return AdministrativeArea.builder().ID(ID).LocalizedName(CITY_LOCALIZED_NAME).build();
     }
 
     private static Temperature getTemperature(){

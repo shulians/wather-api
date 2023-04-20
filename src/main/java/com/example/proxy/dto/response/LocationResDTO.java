@@ -17,15 +17,18 @@ import org.modelmapper.ModelMapper;
 public class LocationResDTO extends ResponseDTO {
     Integer Version;
     String Key;
-    String Type;
     Integer Rank;
     String LocalizedName;
-    CountryDTO Country;
+    String city;
+    String country;
 
     public static LocationResDTO convert (Locations toConvert){
         ModelMapper modelMapper = new ModelMapper();
 
         LocationResDTO dto = modelMapper.map(toConvert,LocationResDTO.class);
+
+        dto.setCity(toConvert.getAdministrativeArea().getLocalizedName());
+        dto.setCountry(toConvert.getCountry().getLocalizedName());
 
         return dto;
     }

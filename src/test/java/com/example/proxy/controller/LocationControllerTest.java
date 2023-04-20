@@ -11,6 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -24,11 +26,20 @@ public class LocationControllerTest {
 
     @Test
     void getLocationByLocalizedNameTest() throws TechnicalException {
-        LocationResDTO location = TestUtil.getLocationResDTO();
+        List<LocationResDTO> location = TestUtil.getLocationsResDTO();
 
-        when(service.getLocation(TestUtil.LOCATIONS_LOCALIZED_NAME)).thenReturn(location);
+        when(service.getLocations(TestUtil.LOCATIONS_LOCALIZED_NAME)).thenReturn(location);
 
         Assert.assertEquals(controller.getLocationByLocalizedName(TestUtil.LOCATIONS_LOCALIZED_NAME).getBody(), location);
+    }
+
+    @Test
+    void getLocationByKeyTest() throws TechnicalException {
+        LocationResDTO location = TestUtil.getLocationResDTO();
+
+        when(service.getLocationByKey(TestUtil.KEY)).thenReturn(location);
+
+        Assert.assertEquals(controller.getLocationByKey(TestUtil.KEY).getBody(), location);
     }
 
 }

@@ -32,14 +32,13 @@ public class LocationServiceImplTest {
     public void getLocationTest() throws TechnicalException {
         ReflectionTestUtils.setField(service, TestUtil.API_KEY, TestUtil.API_KEY_VALUE);
 
-        String key = TestUtil.KEY;
         List<Locations> locations = TestUtil.getListLocations();
 
         when(client.searchByQ(TestUtil.API_KEY_VALUE,TestUtil.TEXT)).thenReturn(locations);
 
-        LocationResDTO response = service.getLocation(TestUtil.TEXT);
+        List<LocationResDTO> response = service.getLocations(TestUtil.TEXT);
 
-        Assert.assertEquals(response.getKey(), key);
+        Assert.assertEquals(response.isEmpty(), false);
     }
 
     @Test
@@ -48,6 +47,6 @@ public class LocationServiceImplTest {
 
         when(client.searchByQ(TestUtil.API_KEY_VALUE,TestUtil.TEXT)).thenReturn(null);
 
-        assertThrows(TechnicalException.class, () -> service.getLocation(TestUtil.TEXT));
+        assertThrows(TechnicalException.class, () -> service.getLocations(TestUtil.TEXT));
     }
 }

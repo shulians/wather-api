@@ -1,11 +1,9 @@
 package com.example.proxy.service.impl;
 
-import com.example.proxy.dto.TemperatureDTO;
 import com.example.proxy.dto.response.CurrentConditionResDTO;
 import com.example.proxy.exception.TechnicalException;
 import com.example.proxy.feign.client.currentconditions.CurrentConditionsClient;
 import com.example.proxy.feign.rest.currentconditions.CurrentConditions;
-import com.example.proxy.feign.rest.currentconditions.MeasureTime;
 import com.example.proxy.service.ICurrentConditionService;
 import com.example.proxy.util.ErrorDescriptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,8 +8,8 @@ import lombok.Data;
 public class Locations {
      Integer Version;
      String Key;
-     String Type;
      Integer Rank;
      String LocalizedName;
+     AdministrativeArea AdministrativeArea;
      Country Country;
 }
