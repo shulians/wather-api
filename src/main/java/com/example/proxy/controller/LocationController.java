@@ -19,7 +19,7 @@ public class LocationController {
     }
 
     @GetMapping
-    public ResponseEntity<LocationResDTO> getCurrentConditionByLocationKey(@RequestParam("localizedName")String localizedName) throws TechnicalException {
+    public ResponseEntity<LocationResDTO> getLocationByLocalizedName(@RequestParam("localizedName")String localizedName) throws TechnicalException {
         return ResponseEntity.ok(service.getLocation(localizedName));
     }
 }
