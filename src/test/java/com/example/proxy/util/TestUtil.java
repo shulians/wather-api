@@ -1,7 +1,7 @@
 package com.example.proxy.util;
 
-import com.example.proxy.dto.response.CurrentConditionResDTO;
 import com.example.proxy.dto.response.LocationResDTO;
+import com.example.proxy.dto.response.WeatherResDTO;
 import com.example.proxy.feign.rest.currentconditions.CurrentConditions;
 import com.example.proxy.feign.rest.currentconditions.MeasureTime;
 import com.example.proxy.feign.rest.currentconditions.Temperature;
@@ -77,8 +77,8 @@ public class TestUtil {
         return currentConditions;
     }
 
-    public static CurrentConditionResDTO getCurrentConditionResDTO(){
-        return CurrentConditionResDTO.builder().build();
+    public static WeatherResDTO getWeatherCurrentResDTO(){
+        return WeatherResDTO.builder().build();
     }
 
     private static Country getCountry(){

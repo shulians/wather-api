@@ -1,11 +1,10 @@
 package com.example.proxy.impl;
 
-import com.example.proxy.dto.response.CurrentConditionResDTO;
+import com.example.proxy.dto.response.WeatherResDTO;
 import com.example.proxy.exception.TechnicalException;
 import com.example.proxy.feign.client.currentconditions.CurrentConditionsClient;
-import com.example.proxy.feign.client.locations.LocationsClient;
 import com.example.proxy.feign.rest.currentconditions.CurrentConditions;
-import com.example.proxy.service.impl.CurrentConditionServiceImpl;
+import com.example.proxy.service.impl.WeatherCurrentServiceImpl;
 import com.example.proxy.util.TestUtil;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -24,7 +23,7 @@ import static org.mockito.Mockito.when;
 public class CurrentConditionServiceImplTest {
 
     @InjectMocks
-    private CurrentConditionServiceImpl service;
+    private WeatherCurrentServiceImpl service;
 
     @Mock
     private CurrentConditionsClient client;
@@ -39,7 +38,7 @@ public class CurrentConditionServiceImplTest {
 
         when(client.getByLocationKey(TestUtil.API_KEY_VALUE, TestUtil.KEY)).thenReturn(conditions);
 
-        CurrentConditionResDTO response = service.getByLocationKey(TestUtil.KEY);
+        WeatherResDTO response = service.getByLocationKey(TestUtil.KEY);
 
         Assert.assertEquals(response.getTemperature().getImperial().getValue(), valueImperial);
     }

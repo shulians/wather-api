@@ -13,16 +13,16 @@ import org.modelmapper.ModelMapper;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrentConditionResDTO extends ResponseDTO {
+public class WeatherResDTO extends ResponseDTO {
     String LocalObservationDateTime;
     TemperatureDTO Temperature;
     String MobileLink;
     String Link;
 
-    public static CurrentConditionResDTO convert (CurrentConditions toConvert){
+    public static WeatherResDTO convert (CurrentConditions toConvert){
         ModelMapper modelMapper = new ModelMapper();
 
-        CurrentConditionResDTO dto = modelMapper.map(toConvert,CurrentConditionResDTO.class);
+        WeatherResDTO dto = modelMapper.map(toConvert, WeatherResDTO.class);
 
         return dto;
     }
