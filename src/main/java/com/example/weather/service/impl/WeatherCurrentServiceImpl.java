@@ -40,7 +40,7 @@ public class WeatherCurrentServiceImpl implements IWeatherCurrentService {
                 response = WeatherResDTO.convert(condition);
 
                 WeatherCurrentHistory weatherCurrent = WeatherCurrentHistory.builder()
-                        .key(rq.getKey())
+                        .locationKey(rq.getKey())
                         .dateTime(response.getLocalObservationDateTime())
                         .weatherInMetric(response.getTemperature().getMetric().getValue())
                         .weatherInImperial(response.getTemperature().getImperial().getValue())

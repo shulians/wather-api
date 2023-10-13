@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-@EntityScan(basePackages = "com.example.weather.result.model")
+@EntityScan(basePackages = "com.example.weather.exampledb.model")
 public class WeatherApplication {
 
 	public static void main(String[] args) {

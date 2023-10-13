@@ -12,10 +12,7 @@ import org.modelmapper.ModelMapper;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeatherCurrentResDTO {
-    String key;
-    String localizedName;
-    String country;
-    String city;
+    String locationKey;
     String dateTime;
     String weatherInMetric;
     String weatherInImperial;

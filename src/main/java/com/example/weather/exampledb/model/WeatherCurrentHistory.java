@@ -11,16 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="WEATHER_CURRENT_HISTORY", schema = "EXAMPLEDB")
+@Table(name="WEATHER_CURRENT_HISTORY")
 public class WeatherCurrentHistory {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     Integer id;
 
-    @Column(name = "KEY")
-    String key;
+    @Column(name = "LOCATION_KEY")
+    String locationKey;
 
     @Column(name = "DATE_TIME")
     String dateTime;
