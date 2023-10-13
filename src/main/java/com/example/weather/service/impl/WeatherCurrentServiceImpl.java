@@ -32,7 +32,7 @@ public class WeatherCurrentServiceImpl implements IWeatherCurrentService {
 
     @Override
     public WeatherResDTO getByLocationKey(WeatherRqDTO rq)throws TechnicalException{
-        WeatherResDTO response = null;
+        WeatherResDTO response = WeatherResDTO.builder().build();
 
         try {
             List<CurrentConditions> conditions = client.getByLocationKey(apiKey, rq.getKey());

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LocationServiceImpl implements ILocationService {
@@ -27,14 +28,14 @@ public class LocationServiceImpl implements ILocationService {
 
     @Override
     public List<LocationResDTO> getLocations(String q) throws TechnicalException {
-        List<LocationResDTO> response = new ArrayList<>();
+        List<LocationResDTO> response;
 
         try {
             List<Locations> locations = client.searchByQ(apiKey, q);
 
-            if (!locations.isEmpty()) {
-                locations.forEach(item -> response.add(LocationResDTO.convert(item)));
-            }
+            response = locations.stream()
+                                .map(LocationResDTO::convert)
+                                .collect(Collectors.toList());
         }catch (Exception e){
             throw new TechnicalException(ErrorDescriptionUtil.E_GENERAL_EXCEPTION_CODE,
                     ErrorDescriptionUtil.E_GENERAL_EXCEPTION);

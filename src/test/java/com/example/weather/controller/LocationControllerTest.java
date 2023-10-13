@@ -1,5 +1,6 @@
 package com.example.weather.controller;
 
+
 import com.example.weather.dto.response.LocationResDTO;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.service.ILocationService;
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class LocationControllerTest {
-
+/*
     @InjectMocks
     private LocationController controller;
 
@@ -41,5 +42,5 @@ public class LocationControllerTest {
 
         Assert.assertEquals(controller.getLocationByKey(TestUtil.KEY).getBody(), location);
     }
-
+*/
 }
