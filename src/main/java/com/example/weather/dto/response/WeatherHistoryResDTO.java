@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeatherHistoryResDTO extends ResponseDTO{
-    List<WeatherResDTO> weathers;
+    List<WeatherCurrentResDTO> weathers;
 }

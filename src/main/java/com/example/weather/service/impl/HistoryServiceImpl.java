@@ -1,8 +1,11 @@
 package com.example.weather.service.impl;
 
 import com.example.weather.dto.response.LocationResDTO;
+import com.example.weather.dto.response.WeatherCurrentResDTO;
 import com.example.weather.dto.response.WeatherHistoryResDTO;
 import com.example.weather.dto.response.WeatherResDTO;
+import com.example.weather.exampledb.model.WeatherCurrentHistory;
+import com.example.weather.exampledb.repository.WeatherCurrentHistoryRepository;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.feign.client.result.ResultClient;
 import com.example.weather.feign.rest.locations.Locations;
@@ -17,23 +20,22 @@ import java.util.List;
 
 @Service
 public class HistoryServiceImpl implements IHistoryService {
-    ResultClient resultsClient;
-
+    private WeatherCurrentHistoryRepository repository;
     @Autowired
-    public HistoryServiceImpl(ResultClient resultsClient) {
-        this.resultsClient = resultsClient;
+    public HistoryServiceImpl(WeatherCurrentHistoryRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public WeatherHistoryResDTO getWeatherHistory() throws TechnicalException {
         WeatherHistoryResDTO response = WeatherHistoryResDTO.builder().build();
-        List<WeatherResDTO> list = new ArrayList<>();
+        List<WeatherCurrentResDTO> list = new ArrayList<>();
 
         try {
-            Results results = resultsClient.getAll();
+            List<WeatherCurrentHistory> weatherCurrentList = repository.findAll();
 
-            if (!results.getResults().isEmpty()) {
-                results.getResults().forEach(item -> list.add(WeatherResDTO.convert(item)));
+            if (!weatherCurrentList.isEmpty()) {
+                weatherCurrentList.forEach(item -> list.add(WeatherCurrentResDTO.convert(item)));
                 response.setWeathers(list);
             }
 
