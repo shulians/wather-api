@@ -1,8 +1,11 @@
 package com.example.weather.util;
 
+import com.example.weather.dto.MeasureTimeDTO;
 import com.example.weather.dto.request.WeatherRqDTO;
 import com.example.weather.dto.response.LocationResDTO;
+import com.example.weather.dto.response.WeatherHistoryResDTO;
 import com.example.weather.dto.response.WeatherResDTO;
+import com.example.weather.exampledb.model.WeatherCurrentHistory;
 import com.example.weather.feign.rest.currentconditions.CurrentConditions;
 import com.example.weather.feign.rest.currentconditions.MeasureTime;
 import com.example.weather.feign.rest.currentconditions.Temperature;
@@ -79,7 +82,7 @@ public class TestUtil {
     }
 
     public static WeatherResDTO getWeatherCurrentResDTO(){
-        return WeatherResDTO.builder().build();
+        return WeatherResDTO.builder().LocalObservationDateTime(DATE_TIME).build();
     }
 
     private static Country getCountry(){
@@ -98,5 +101,22 @@ public class TestUtil {
 
     public static WeatherRqDTO getWeatherRqDTO() {
         return WeatherRqDTO.builder().key(KEY).build();
+    }
+
+    public static WeatherCurrentHistory getWeatherCurrentHistory() {
+        return WeatherCurrentHistory.builder()
+                .locationKey(KEY)
+                .dateTime(DATE_TIME)
+                .weatherInMetric(DOUBLE_METRIC)
+                .weatherInImperial(DOUBLE_IMPERIAL)
+                .build();
+    }
+
+    public static List<WeatherCurrentHistory> getWeatherCurrentHistoryList(){
+        List<WeatherCurrentHistory> currentConditions = new ArrayList();
+        WeatherCurrentHistory w1 = getWeatherCurrentHistory();
+        currentConditions.add(w1);
+
+        return currentConditions;
     }
 }

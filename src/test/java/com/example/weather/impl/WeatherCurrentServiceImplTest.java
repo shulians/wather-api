@@ -1,6 +1,8 @@
 package com.example.weather.impl;
 
 import com.example.weather.dto.response.WeatherResDTO;
+import com.example.weather.exampledb.model.WeatherCurrentHistory;
+import com.example.weather.exampledb.repository.WeatherCurrentHistoryRepository;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.feign.client.currentconditions.CurrentConditionsClient;
 import com.example.weather.feign.rest.currentconditions.CurrentConditions;
@@ -20,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class CurrentConditionServiceImplTest {
+public class WeatherCurrentServiceImplTest {
 
     @InjectMocks
     private WeatherCurrentServiceImpl service;
@@ -28,6 +30,8 @@ public class CurrentConditionServiceImplTest {
     @Mock
     private CurrentConditionsClient client;
 
+    @Mock
+    WeatherCurrentHistoryRepository repository;
 
     @Test
     public void getByLocationKeyTest() throws TechnicalException {
@@ -35,8 +39,10 @@ public class CurrentConditionServiceImplTest {
 
         Double valueImperial = TestUtil.DOUBLE_IMPERIAL;
         List<CurrentConditions> conditions = TestUtil.getListCurrentConditions();
+        WeatherCurrentHistory weatherCurrent = TestUtil.getWeatherCurrentHistory();
 
         when(client.getByLocationKey(TestUtil.API_KEY_VALUE, TestUtil.KEY)).thenReturn(conditions);
+        when(repository.save(weatherCurrent)).thenReturn(weatherCurrent);
 
         WeatherResDTO response = service.getByLocationKey(TestUtil.getWeatherRqDTO());
 

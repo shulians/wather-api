@@ -1,6 +1,7 @@
 package com.example.weather.controller;
 
 
+import com.example.weather.controller.impl.WeatherCurrentControllerImpl;
 import com.example.weather.dto.response.WeatherResDTO;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.service.IWeatherCurrentService;
@@ -15,10 +16,10 @@ import org.mockito.InjectMocks;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class CurrentControllerTest {
-/*
+public class WeatherCurrentControllerTest {
+
     @InjectMocks
-    private WeatherCurrentController controller;
+    private WeatherCurrentControllerImpl controller;
 
     @Mock
     private IWeatherCurrentService service;
@@ -31,5 +32,5 @@ public class CurrentControllerTest {
 
         Assert.assertEquals(controller.getCurrentByLocationKey(TestUtil.getWeatherRqDTO()).getBody(), condition);
     }
-*/
+
 }
