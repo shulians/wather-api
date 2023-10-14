@@ -15,6 +15,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementación de la interfaz {@link IWeatherCurrentService} que proporciona funcionalidad
+ * para obtener información sobre las condiciones climáticas actuales.
+ */
 @Service
 public class WeatherCurrentServiceImpl implements IWeatherCurrentService {
     @Value("${feign.accuweather.apikey}")
@@ -28,6 +32,13 @@ public class WeatherCurrentServiceImpl implements IWeatherCurrentService {
         this.repository = repository;
     }
 
+    /**
+     * Obtiene información sobre las condiciones climáticas actuales para una ubicación específica.
+     *
+     * @param rq Objeto de solicitud que contiene la clave única de la ubicación.
+     * @return DTO que representa las condiciones climáticas actuales.
+     * @throws TechnicalException Si ocurre un error técnico al obtener las condiciones climáticas actuales.
+     */
     @Override
     public WeatherResDTO getByLocationKey(WeatherRqDTO rq)throws TechnicalException{
         WeatherResDTO response = WeatherResDTO.builder().build();

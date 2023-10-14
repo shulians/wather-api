@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * Implementación de la interfaz {@link ILocationService} que proporciona funcionalidad
+ * para obtener información sobre ubicaciones climáticas.
+ */
 @Service
 public class LocationServiceImpl implements ILocationService {
     @Value("${feign.accuweather.apikey}")
@@ -25,6 +28,13 @@ public class LocationServiceImpl implements ILocationService {
         this.client = client;
     }
 
+    /**
+     * Obtiene una lista de ubicaciones climáticas que coinciden con la cadena de búsqueda.
+     *
+     * @param q Cadena de búsqueda para las ubicaciones climáticas.
+     * @return Lista de DTO que representan las ubicaciones climáticas encontradas.
+     * @throws TechnicalException Si ocurre un error técnico al obtener las ubicaciones climáticas.
+     */
     @Override
     public List<LocationResDTO> getLocations(String q) throws TechnicalException {
         List<LocationResDTO> response;
@@ -43,6 +53,13 @@ public class LocationServiceImpl implements ILocationService {
         return response;
     }
 
+    /**
+     * Obtiene información detallada sobre una ubicación climática mediante su clave única.
+     *
+     * @param key Clave única que identifica la ubicación climática.
+     * @return DTO que representa la información de la ubicación climática.
+     * @throws TechnicalException Si ocurre un error técnico al obtener la información de la ubicación climática.
+     */
     @Override
     public LocationResDTO getLocationByKey(String key) throws TechnicalException {
         LocationResDTO response;

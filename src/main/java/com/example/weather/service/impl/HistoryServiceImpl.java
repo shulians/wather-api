@@ -13,6 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementación de la interfaz {@link IHistoryService} que proporciona funcionalidad
+ * para obtener el historial de consultas relacionadas con el clima.
+ */
 @Service
 public class HistoryServiceImpl implements IHistoryService {
     private WeatherCurrentHistoryRepository repository;
@@ -21,6 +25,12 @@ public class HistoryServiceImpl implements IHistoryService {
         this.repository = repository;
     }
 
+    /**
+     * Obtiene el historial del tiempo.
+     *
+     * @return DTO que contiene el historial del consultas relacionadas con el clima.
+     * @throws TechnicalException Si ocurre un error técnico al obtener el historial del tiempo.
+     */
     @Override
     public WeatherHistoryResDTO getWeatherHistory() throws TechnicalException {
         WeatherHistoryResDTO response = WeatherHistoryResDTO.builder().build();
