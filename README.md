@@ -17,14 +17,6 @@ Este microservicio utiliza la API pública de AccuWeather para obtener informaci
      cd wather-api
      ```
 
-   - Abrir el archivo `src/main/resources/application.properties` y configura la clave de la API de AccuWeather:
-
-     ```properties
-     # application.properties
-
-     accuweather.api.key=[TuClaveDeAPIAccuWeather]
-     ```
-
 3. **Ejecución del Proyecto**
 
    - Ejecuta el proyecto con Maven:
