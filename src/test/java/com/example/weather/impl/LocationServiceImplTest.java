@@ -6,7 +6,8 @@ import com.example.weather.feign.client.locations.LocationsClient;
 import com.example.weather.feign.rest.locations.Locations;
 import com.example.weather.service.impl.LocationServiceImpl;
 import com.example.weather.util.TestUtil;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -38,7 +39,7 @@ public class LocationServiceImplTest {
 
         List<LocationResDTO> response = service.getLocations(TestUtil.TEXT);
 
-        Assert.assertEquals(response.isEmpty(), false);
+        Assertions.assertEquals(response.isEmpty(), false);
     }
 
     @Test

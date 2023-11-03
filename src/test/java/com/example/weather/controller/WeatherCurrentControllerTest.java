@@ -6,7 +6,8 @@ import com.example.weather.dto.response.WeatherResDTO;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.service.IWeatherCurrentService;
 import com.example.weather.util.TestUtil;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -30,7 +31,7 @@ public class WeatherCurrentControllerTest {
 
         when(service.getByLocationKey(TestUtil.getWeatherRqDTO())).thenReturn(condition);
 
-        Assert.assertEquals(controller.getCurrentByLocationKey(TestUtil.getWeatherRqDTO()).getBody(), condition);
+        Assertions.assertEquals(controller.getCurrentByLocationKey(TestUtil.getWeatherRqDTO()).getBody(), condition);
     }
 
 }

@@ -8,7 +8,8 @@ import com.example.weather.feign.client.currentconditions.CurrentConditionsClien
 import com.example.weather.feign.rest.currentconditions.CurrentConditions;
 import com.example.weather.service.impl.WeatherCurrentServiceImpl;
 import com.example.weather.util.TestUtil;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -46,7 +47,7 @@ public class WeatherCurrentServiceImplTest {
 
         WeatherResDTO response = service.getByLocationKey(TestUtil.getWeatherRqDTO());
 
-        Assert.assertEquals(response.getTemperature().getImperial().getValue(), valueImperial);
+        Assertions.assertEquals(response.getTemperature().getImperial().getValue(), valueImperial);
     }
 
     @Test

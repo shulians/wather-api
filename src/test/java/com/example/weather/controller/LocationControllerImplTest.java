@@ -6,12 +6,14 @@ import com.example.weather.dto.response.LocationResDTO;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.service.ILocationService;
 import com.example.weather.util.TestUtil;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class LocationControllerImplTest {
 
         when(service.getLocations(TestUtil.LOCATIONS_LOCALIZED_NAME)).thenReturn(location);
 
-        Assert.assertEquals(controller.getLocationByLocalizedName(TestUtil.LOCATIONS_LOCALIZED_NAME).getBody(), location);
+        Assertions.assertEquals(controller.getLocationByLocalizedName(TestUtil.LOCATIONS_LOCALIZED_NAME).getBody(), location);
     }
 
     @Test
@@ -41,7 +43,7 @@ public class LocationControllerImplTest {
 
         when(service.getLocationByKey(TestUtil.KEY)).thenReturn(location);
 
-        Assert.assertEquals(controller.getLocationByKey(TestUtil.KEY).getBody(), location);
+        Assertions.assertEquals(controller.getLocationByKey(TestUtil.KEY).getBody(), location);
     }
 
 }

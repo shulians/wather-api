@@ -7,7 +7,8 @@ import com.example.weather.exampledb.repository.WeatherCurrentHistoryRepository;
 import com.example.weather.exception.TechnicalException;
 import com.example.weather.service.impl.HistoryServiceImpl;
 import com.example.weather.util.TestUtil;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,6 +34,6 @@ public class HistoryServiceImplTest {
 
         when(repository.findAll()).thenReturn(weatherCurrentList);
 
-        Assert.assertEquals(service.getWeatherHistory().getWeathers().isEmpty(), Boolean.FALSE);
+        Assertions.assertEquals(service.getWeatherHistory().getWeathers().isEmpty(), Boolean.FALSE);
     }
 }

@@ -4,9 +4,10 @@ import com.example.weather.dto.ErrorDTO;
 import com.example.weather.dto.response.ResponseDTO;
 import com.example.weather.exception.BusinessException;
 import com.example.weather.exception.TechnicalException;
-import io.micrometer.common.lang.Nullable;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;

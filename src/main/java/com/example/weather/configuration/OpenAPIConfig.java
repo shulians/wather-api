@@ -1,5 +1,6 @@
 package com.example.weather.configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -21,11 +22,14 @@ public class OpenAPIConfig {
         devServer.setUrl(devUrl);
         devServer.setDescription("Server URL in Local environment");
 
+        List<Server> ls = new ArrayList<>();
+        ls.add(devServer);
+
         Info info = new Info()
                 .title("Servicio de Clima")
                 .version("1.0")
                 .description("Este microservicio utiliza la API pública de AccuWeather para obtener información del clima y guarda los resultados en una base de datos H2.");
 
-        return new OpenAPI().info(info).servers(List.of(devServer));
+        return new OpenAPI().info(info).servers(ls);
     }
 }
