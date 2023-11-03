@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.servers.Server;
+//import io.swagger.v3.oas.models.OpenAPI;
+//import io.swagger.v3.oas.models.info.Info;
+//import io.swagger.v3.oas.models.servers.Server;
 
-@Configuration
+//@Configuration
 public class OpenAPIConfig {
-    @Value("${openapi.dev-url}")
+    //@Value("${openapi.dev-url}")
     String devUrl;
 
-    @Bean
+    /*@Bean
     public OpenAPI myOpenAPI() {
         Server devServer = new Server();
         devServer.setUrl(devUrl);
@@ -31,5 +31,5 @@ public class OpenAPIConfig {
                 .description("Este microservicio utiliza la API pública de AccuWeather para obtener información del clima y guarda los resultados en una base de datos H2.");
 
         return new OpenAPI().info(info).servers(ls);
-    }
+    }*/
 }
