@@ -27,4 +27,7 @@ Este microservicio utiliza la API pública de AccuWeather para obtener informaci
 
 ## Uso del Microservicio
 
-Para información sobre cómo utilizar el microservicio y los endpoints disponibles, consulta la documentación de Swagger (http://localhost:8085/swagger-ui.html). La documentación de Swagger proporciona detalles sobre cómo realizar solicitudes a la API y cómo interpretar las respuestas.
+Para información sobre cómo utilizar el microservicio y los endpoints disponibles, consulta la documentación de Swagger (/weather/swagger-ui.html). La documentación de Swagger proporciona detalles sobre cómo realizar solicitudes a la API y cómo interpretar las respuestas.
+
+
+## Ejemplo
