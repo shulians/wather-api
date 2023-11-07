@@ -1,6 +1,6 @@
 # Microservicio de Clima
 
-Este microservicio utiliza la API pública de AccuWeather para obtener información del clima y guarda los resultados en una base de datos H2.
+Este microservicio utiliza la API pública de AccuWeather para obtener información del clima y guarda los resultados en una base de datos H2. El servicio se encuentra desployado en Google Cloud (link en la seccion de ejemplos).
 
 ## Configuración
 
@@ -26,8 +26,8 @@ Este microservicio utiliza la API pública de AccuWeather para obtener informaci
      ```
 
 ## Uso del Microservicio
-
-Para información sobre cómo utilizar el microservicio y los endpoints disponibles, consulta la documentación de Swagger (/weather/swagger-ui.html). La documentación de Swagger proporciona detalles sobre cómo realizar solicitudes a la API y cómo interpretar las respuestas.
-
-
-## Ejemplo
+Para información sobre cómo utilizar el microservicio y los endpoints disponibles, consulta la documentación de Swagger (/weather/swagger-ui.html).
+La Api se encuentra deployada en Google Cloud, donde se podra ejecutar el servicio en modo de ejemplo.
+1. Revisar si la api se encuentra activa: https://whater-project.rj.r.appspot.com/weather/actuator/health/liveness) 
+   ```{"status":"UP"}```
+2. Ingresar a https://whater-project.rj.r.appspot.com/weather/swagger-ui.html
