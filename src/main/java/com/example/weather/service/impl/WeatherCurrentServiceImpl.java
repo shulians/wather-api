@@ -44,17 +44,27 @@ public class WeatherCurrentServiceImpl implements IWeatherCurrentService {
         WeatherResDTO response = WeatherResDTO.builder().build();
 
         try {
-            List<CurrentConditions> conditions = client.getByLocationKey(apiKey, rq.getKey());
+            String key = rq.getLocation().getKey();
+            String localizedName = rq.getLocation().getLocalizedName();
+            String country = rq.getLocation().getCountry();
+            String city = rq.getLocation().getCity();
+
+            List<CurrentConditions> conditions = client.getByLocationKey(apiKey, key);
 
             if(!conditions.isEmpty()){
                 CurrentConditions condition = conditions.get(0);
                 response = WeatherResDTO.convert(condition);
 
                 WeatherCurrentHistory weatherCurrent = WeatherCurrentHistory.builder()
-                        .locationKey(rq.getKey())
+                        .locationKey(key)
                         .dateTime(response.getLocalObservationDateTime())
+                        .localizedName(localizedName)
+                        .country(country)
+                        .city(city)
                         .weatherInMetric(response.getTemperature().getMetric().getValue())
                         .weatherInImperial(response.getTemperature().getImperial().getValue())
+                        .WeatherText(response.getWeatherText())
+                        .IsDayTime(response.getIsDayTime())
                         .build();
 
                 repository.save(weatherCurrent);

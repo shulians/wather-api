@@ -10,4 +10,6 @@ public class CurrentConditions {
     Temperature Temperature;
     String MobileLink;
     String Link;
+    String WeatherText;
+    Boolean IsDayTime;
 }

@@ -1,0 +1,4 @@
+runtime: java17
+service: wheater-service
+instance_class: F2
+

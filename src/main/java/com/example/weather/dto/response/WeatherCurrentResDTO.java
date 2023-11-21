@@ -14,6 +14,11 @@ import org.modelmapper.ModelMapper;
 public class WeatherCurrentResDTO {
     String locationKey;
     String dateTime;
+    String localizedName;
+    String country;
+    String city;
+    String WeatherText;
+    Boolean IsDayTime;
     String weatherInMetric;
     String weatherInImperial;
 

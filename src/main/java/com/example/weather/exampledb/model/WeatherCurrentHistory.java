@@ -28,6 +28,21 @@ public class WeatherCurrentHistory {
     @Column(name = "DATE_TIME")
     String dateTime;
 
+    @Column(name = "LOCALIZED_NAME")
+    String localizedName;
+
+    @Column(name = "COUNTRY")
+    String country;
+
+    @Column(name = "CITY")
+    String city;
+
+    @Column(name = "WEATHER_TEXT")
+    String WeatherText;
+
+    @Column(name = "IS_DAY_TIME")
+    Boolean IsDayTime;
+
     @Column(name = "WEATHER_IN_METRIC")
     Double weatherInMetric;
 

@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class WeatherRqDTO {
-    @ApiModelProperty(notes = "Clave única que identifica la ubicación para obtener información meteorológica", required = true)
-    String key;
+    LocationReqDTO location;
 }

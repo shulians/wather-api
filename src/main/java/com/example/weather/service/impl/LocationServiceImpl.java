@@ -74,4 +74,19 @@ public class LocationServiceImpl implements ILocationService {
 
         return response;
     }
+
+    @Override
+    public LocationResDTO getLocationByGeoposition(String geo) throws TechnicalException {
+        LocationResDTO response;
+
+        try {
+            Locations location = client.searchGeoByQ(apiKey, geo);
+            response = LocationResDTO.convert(location);
+        }catch (Exception e){
+            throw new TechnicalException(ErrorDescriptionUtil.E_GENERAL_EXCEPTION_CODE,
+                    ErrorDescriptionUtil.E_GENERAL_EXCEPTION);
+        }
+
+        return response;
+    }
 }

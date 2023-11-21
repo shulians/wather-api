@@ -18,6 +18,8 @@ public class WeatherResDTO extends ResponseDTO {
     TemperatureDTO Temperature;
     String MobileLink;
     String Link;
+    String WeatherText;
+    Boolean IsDayTime;
 
     public static WeatherResDTO convert (CurrentConditions toConvert){
         ModelMapper modelMapper = new ModelMapper();

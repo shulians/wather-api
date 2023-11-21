@@ -15,6 +15,9 @@ public interface LocationsClient {
     @RequestMapping(method = RequestMethod.GET, value = "/cities/search")
     List<Locations> searchByQ(@RequestParam("apikey")String apikey, @RequestParam("q")String q);
 
+    @RequestMapping(method = RequestMethod.GET, value = "/cities/geoposition/search")
+    Locations searchGeoByQ(@RequestParam("apikey")String apikey, @RequestParam("q")String q);
+
     @RequestMapping(method = RequestMethod.GET, value = "/{locationKey}")
     Locations searchByLocationKey(@RequestParam("apikey")String apikey, @PathVariable("locationKey")String locationKey);
 

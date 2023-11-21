@@ -9,4 +9,6 @@ public interface ILocationService {
     List<LocationResDTO> getLocations(String q)throws TechnicalException;
 
     LocationResDTO getLocationByKey(String key)throws TechnicalException;
+
+    LocationResDTO getLocationByGeoposition(String geo)throws TechnicalException;
 }

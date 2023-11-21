@@ -28,4 +28,9 @@ public class LocationControllerImpl implements LocationController {
     public ResponseEntity<LocationResDTO> getLocationByKey(@PathVariable("key")String key) throws TechnicalException {
         return ResponseEntity.ok(service.getLocationByKey(key));
     }
+
+    @GetMapping("/geoposition/{geo}")
+    public ResponseEntity<LocationResDTO> getLocationByGeo(@PathVariable("geo")String geo) throws TechnicalException {
+        return ResponseEntity.ok(service.getLocationByGeoposition(geo));
+    }
 }
