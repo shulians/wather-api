@@ -1,6 +1,7 @@
 package com.example.weather.util;
 
 import com.example.weather.dto.MeasureTimeDTO;
+import com.example.weather.dto.request.LocationReqDTO;
 import com.example.weather.dto.request.WeatherRqDTO;
 import com.example.weather.dto.response.LocationResDTO;
 import com.example.weather.dto.response.WeatherHistoryResDTO;
@@ -100,7 +101,8 @@ public class TestUtil {
     }
 
     public static WeatherRqDTO getWeatherRqDTO() {
-        return WeatherRqDTO.builder().key(KEY).build();
+        LocationReqDTO location = LocationReqDTO.builder().key(KEY).build();
+        return WeatherRqDTO.builder().location(location).build();
     }
 
     public static WeatherCurrentHistory getWeatherCurrentHistory() {
